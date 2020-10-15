@@ -1,9 +1,9 @@
 FROM dockerbase/tomcat8
 
-RUN rm -f /usr/local/tomcat/webapps/ROOT && \
+RUN rm -rf /usr/local/tomcat/webapps/ROOT && \
     mkdir -p /usr/local/tomcat/webapps/ROOT
 
-COPY . /usr/local/tomcat/webapps/ROOT
+COPY -R target/hello-1.0/* /usr/local/tomcat/webapps/ROOT
 
 
 # open port
